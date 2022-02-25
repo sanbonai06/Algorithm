@@ -10,6 +10,7 @@ int dy[4] = {0, 0, 1, -1};
 char map[20][20];
 bool visited[20][20];
 int cnt[20][20];
+int res = 0;
 bool check[26]; //false면 이미 사용 true면 미사용
 
 void init() {
@@ -18,6 +19,7 @@ void init() {
 }
 
 void logic(int x, int y) {
+    res = max(res, cnt[x][y]);
     for(int i = 0; i<4; i++) {
         int tx = x+dx[i];
         int ty = y+dy[i];
@@ -58,12 +60,7 @@ int main() {
     int d = map[0][0] - 'A';
     check[d] = false;
     logic(0,0);
-    int max_num = 0;
-    for(int i=0; i<R; i++) {
-        for(int j=0; j<C; j++) {
-            max_num = max(max_num, visited[i][j]);
-        }
-    }
-    cout<<max_num<<"\n";
+
+    cout<<res<<"\n";
 
 }
