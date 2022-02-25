@@ -35,8 +35,19 @@ void logic(int v, int n) {
     }
 }
 
+void floyd() {
+    for (int i=1; i<=N; i++) {
+        for(int j=1; j<=N; j++) {
+            for(int k=1; k<=N; k++) {
+                if(adjmat[j][i] && adjmat[i][k]) {
+                    adjmat[j][k] = true;
+                }
+            }
+        }
+    }
+}
+
 int main() {
-    init();
     cin>>N;
     for(int i=1; i<=N; i++) {
         for(int j=1;j<=N;j++) {
@@ -46,13 +57,14 @@ int main() {
             }
         }
     }
-    for(int i=1; i<=N; i++) {
-        logic(i, i);
-        memset(visited, false, sizeof(visited));
-    }
+    // for(int i=1; i<=N; i++) {
+    //     logic(i, i);
+    //     memset(visited, false, sizeof(visited));
+    // }
+    floyd();
     for(int i=1; i<=N; i++) {
         for(int j=1; j<=N; j++) {
-            cout<<result[i][j]<<" ";
+            cout<<adjmat[i][j]<<" ";
         }
         cout<<"\n";
     }
