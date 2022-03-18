@@ -5,6 +5,7 @@ using namespace std;
 
 int n, m;
 int map[1001][1001];
+long long dp[1001][1001];
 void logic() {
     for(long long i=0; i<n; i++) {
         for(long long j=0; j<m; j++) {
