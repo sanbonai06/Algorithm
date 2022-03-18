@@ -19,8 +19,6 @@ void add_digits(char aa[N], char bb[N])
   int i=0;
   int carry=0;
   int j, s;
-//    while(aa[i++]==0)  // after loop, i is the first "non-zero" place
-//   {
   for(j=N-1;j>=0;j--) { // the sum can have non-zero at (i-1)th place
     if( (s=carry+aa[j]+bb[j])>9 ) {
       bb[j]=s-10;
@@ -50,21 +48,10 @@ int main()
     cin>>d;
     for(i=3;i<=d;i++) {
         memcpy(cc, aa, sizeof(aa));     //cc에 fib(n-1) 저장
-        // print_digits(cc);
-        // printf("\n");
         add_digits(aa, bb);     //bb에 fib(n) 저장
         if(i == d) break;
         memcpy(aa, bb, sizeof(bb));         //aa에 fib(n-1)이 되는 것 저장
         memcpy(bb, cc, sizeof(cc));         //bb에 fib(n-2)이 되는 것 저장
-        // printf("aa: ");
-        // print_digits(aa);
-        // printf("\n");
-        // printf("bb: ");
-        // print_digits(bb);
-        // printf("\n");
-        // printf("cc: ");
-        // print_digits(cc);
-        // printf("\n");
     }
     print_digits(bb);
 }
