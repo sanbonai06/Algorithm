@@ -1,0 +1,21 @@
+(setq TC1 '(11 33 23 45 13 25 8 135))
+(setq TC2 '(83 72 65 54 47 33 29 11))
+(setq TC3 '(1 3 5 7 9 11 13 15))
+
+(defun insertion_sort (L)
+    (loop for i from 1 to 7 do
+        (setf tmp (nth i L))      ;; 비교 대상이 되는 키 값
+        ;; list의 i-1까지는 정렬된 상태. i번째(키 값)과 비교하면서 Sort.
+        (loop for j from (- i 1) downto 0 do 
+            (if (> (nth j L) tmp)           ;; 키 값을 비교해가며 정렬 
+                ;; 조건 만족하면 swap
+                (progn (setf (nth (+ 1 j) L) (nth j L)) (setf (nth j L) tmp))   
+            )
+        )
+        ;; 정렬 과정 출력
+        (print L)
+    )
+)
+
+(insertion_sort TC2)
+
