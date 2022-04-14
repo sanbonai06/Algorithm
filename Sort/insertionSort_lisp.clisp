@@ -17,5 +17,7 @@
     )
 )
 
+(insertion_sort TC1)
+(print "=================")
 (insertion_sort TC2)
 
