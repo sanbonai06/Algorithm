@@ -42,23 +42,20 @@ void solve(int r, int c) {
     }
 }
 
-void makeTree(int r_row, int r_col, int k) {
-    if(treeCnt >= N) return;
-    // if(answer[0][k-2] == 0 && answer[k][N-1] == 0) {
-    //     return;
-    // }
-    if(k==0) return;
-    int left = answer[0][k-2];
-    answer[0][k-2] = 0;
-    int right = answer[k][N-1];
-    answer[k][N-1] = 0;
-    tree[r_row+1][r_col-1] = left;
-    tree[r_row+1][r_col+2] = right;
-    treeCnt++;
-    makeTree(r_row+1, r_col-1, left);
-    makeTree(r_row+1, r_col+1, right);
+// void makeTree(int r_row, int r_col, int k) {
+//     if(k<=1) return;
+//     int left = answer[0][k-1];
+//     answer[0][k-1] = 0;
+//     int right = answer[k+1][N-1];
+//     answer[k+1][N-1] = 0;
+//     tree[r_row+1][r_col-1] = left;
+//     tree[r_row+1][r_col+2] = right;
+//     makeTree(r_row+1, r_col-1, left-1);
+//     makeTree(r_row+1, r_col+2, right-1);
 
-}
+// }
+
+
 
 int main() {
     cin>>N;
@@ -95,21 +92,4 @@ int main() {
         }
         cout<<"\n";
     }
-    cout<<"\n";
-    cout<<"Need to figure out how to print out BST"<<"\n"<<"\n";
-    tree[0][N/2] = answer[0][N-1];
-    makeTree(0, (N-1)/2, 3);
-    for(int i=0; i<N; i++) {
-        for(int j=0; j<2*N; j++) {
-            if(tree[i][j]==0) cout<<" ";
-            else cout<<tree[i][j]<<" ";
-        }
-        cout<<"\n";
-    }
-    // for(int i=0; i<N; i++) {
-    //     for(int j=0; j<2*N; j++) {
-    //         cout<<tree[i][j]<<" ";
-    //     }
-    //     cout<<"\n";
-    // }
 }
