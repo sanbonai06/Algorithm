@@ -42,21 +42,6 @@ void solve(int r, int c) {
     }
 }
 
-// void makeTree(int r_row, int r_col, int k) {
-//     if(k<=1) return;
-//     int left = answer[0][k-1];
-//     answer[0][k-1] = 0;
-//     int right = answer[k+1][N-1];
-//     answer[k+1][N-1] = 0;
-//     tree[r_row+1][r_col-1] = left;
-//     tree[r_row+1][r_col+2] = right;
-//     makeTree(r_row+1, r_col-1, left-1);
-//     makeTree(r_row+1, r_col+2, right-1);
-
-// }
-
-
-
 int main() {
     cin>>N;
     for(int i=0; i<N; i++) {
